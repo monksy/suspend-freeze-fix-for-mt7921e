@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable Wi-Fi and Bluetooth on suspend
+Before=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/rfkill block all
+
+[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
