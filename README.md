@@ -1,2 +1,20 @@
-# suspend-freeze-fix-for-mt7921e
-Solution for suspend/resume issue on Linux kernel 6.11.6-300 with MediaTek MT7921 adapter
+# Suspend/Resume Fix for MediaTek MT7921 Adapter on Kernel 6.11.6-
+
+## Issue
+A suspend/resume issue occurs on systems with the MediaTek MT7921 Wi-Fi adapter when running on Kernel 6.11.6-. After suspending, the system fails to resume / freezes and requires a hard reset.
+
+### Steps to Solve
+1. **Add Kernel Parameter**: `mt7921e.disable_aspm=Y`
+   - Add this to the kernel parameters in `/etc/default/grub`.
+   - Update GRUB and reboot.
+
+2. **Systemd Services**: Create services to disable Wi-Fi and Bluetooth on suspend and re-enable them on resume.
+   - `disable-wifi-bluetooth-on-suspend.service`
+   - `enable-wifi-bluetooth-on-resume.service`
+
+## Files
+- `disable-wifi-bluetooth-on-suspend.service`: Disables Wi-Fi and Bluetooth on suspend.
+- `enable-wifi-bluetooth-on-resume.service`: Re-enables Wi-Fi and Bluetooth on resume.
+
+## Acknowledgments
+Thanks to [herbiejhopkins](https://bbs.archlinux.org/viewtopic.php?pid=2202200#p2202200) and [seth](https://bbs.archlinux.org/viewtopic.php?pid=2202429#p2202429) on Arch Linux forums. herbiejhopkins came up with the idea of rfkill systemd service and seth with the kernel parameter.
