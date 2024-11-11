@@ -1,7 +1,7 @@
-# Suspend/Resume Fix for MediaTek MT7921 Adapter on Kernel 6.11.6-
+# Suspend/Resume Fix for MediaTek MT7921 Adapter on Kernel 6.11.-
 
 ## Issue
-A suspend/resume issue occurs on systems with the MediaTek MT7921 Wi-Fi adapter when running on Kernel 6.11.6-. After suspending, the system fails to resume / freezes and requires a hard reset.
+A suspend/resume issue occurs on systems with the MediaTek MT7921 Wi-Fi adapter when running on Kernel 6.11.-. After suspending, the system fails to resume / freezes and requires a hard reset.
 
 ### Solution
 1. **Add Kernel Parameter**: `mt7921e.disable_aspm=Y`
