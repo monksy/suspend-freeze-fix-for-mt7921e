@@ -1,0 +1,11 @@
+[Unit]
+Description=Enable Wi-Fi and Bluetooth on resume
+After=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/rfkill unblock all
+
+[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
