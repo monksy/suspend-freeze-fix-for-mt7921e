@@ -4,7 +4,7 @@ Before=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernat
 
 [Service]
 Type=oneshot
-ExecStart=/usr/sbin/rfkill block all
+ExecStart=/usr/sbin/rfkill block bluetooth
 
 [Install]
 WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
